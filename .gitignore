@@ -9,3 +9,5 @@
 /.nrepl-port
 .calva/**/*.calva-repl
 .lsp/sqlite*.db
+.idea
+rich4clojure.iml

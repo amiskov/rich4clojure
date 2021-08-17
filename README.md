@@ -1,3 +1,6 @@
+# How to run tests from a file in Cursive
+Just copy and paste contents from `dev/repl` into running REPL. Now you can just evaluate a file and see tests running.
+
 # Rich 4Clojure 
 
 *Practice Clojure using Interactive Programming in your editor.*

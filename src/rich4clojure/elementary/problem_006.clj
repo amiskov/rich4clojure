@@ -19,7 +19,8 @@
   )
 
 (tests
-  [__] := (list :a :b :c) (vec '(:a :b :c)) (vector :a :b :c))
+  ;; There `:=` macro can compare test value with several values
+  [:a :b :c] := (list :a :b :c) (vec '(:a :b :c)) (vector :a :b :c))
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/82981313411b066055f5a1d1a1e10037
