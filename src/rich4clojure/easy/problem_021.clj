@@ -11,10 +11,17 @@
 
 (def restricted [nth])
 
-(def __ :tests-will-fail)
+(def __
+  (fn [s n]
+    (let [s' (->> s
+                  (map-indexed vector)
+                  (apply concat)
+                  (apply hash-map))]
+      (get s' n))))
 
 (comment
-  
+  (__ '([1 2] [3 4] [5 6]) 2)
+  (__ '(4 5 6 7) 3)
   )
 
 (tests

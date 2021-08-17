@@ -11,10 +11,13 @@
 
 (def restricted [last])
 
-(def __ :tests-will-fail)
+(def __ (fn my-last [s]
+          (if (= (count s) 1)
+            (first s)
+            (my-last (rest s)))))
 
 (comment
-  
+
   )
 
 (tests

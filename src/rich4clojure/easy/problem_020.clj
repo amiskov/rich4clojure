@@ -9,10 +9,15 @@
 ;; Write a function which returns the second to last
 ;; element from a sequence.
 
-(def __ :tests-will-fail)
+(def __
+  (fn penultimate [s]
+    (if (= (count s) 2)
+      (first s)
+      (penultimate (rest s))))
+  )
 
 (comment
-  
+
   )
 
 (tests
