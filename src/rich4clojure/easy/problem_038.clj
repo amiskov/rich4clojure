@@ -11,10 +11,10 @@
 
 (def restricted [max max-key])
 
-(def __ :tests-will-fail)
+(def __ (fn [& args]
+          (reduce #(if (> %1 %2) %1 %2) (first args) (rest args))))
 
 (comment
-  
   )
 
 (tests

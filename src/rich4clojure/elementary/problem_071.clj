@@ -14,10 +14,10 @@
 ;; the forms. Using -> can sometimes make your code more
 ;; readable.
 
-(def __ :tests-will-fail)
+(def __ last)
 
 (comment
-  
+  (-> [2 5 4 1 3 6] (reverse) (rest) (sort) #_(last))
   )
 
 (tests
