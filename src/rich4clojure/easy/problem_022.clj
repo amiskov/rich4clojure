@@ -11,10 +11,14 @@
 
 (def restricted [count])
 
-(def __ :tests-will-fail)
+(def __ #(loop [s % c 0]
+           (if (empty? s)
+             c
+             (recur (rest s) (inc c)))))
 
 (comment
-  
+  (def __ #(letfn [(len [s c] (if (empty? s) c (len (rest s) (inc c))))]
+             (len % 0)))
   )
 
 (tests

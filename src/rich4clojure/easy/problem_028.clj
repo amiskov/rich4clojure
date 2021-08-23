@@ -10,10 +10,20 @@
 
 (def restricted [flatten])
 
-(def __ :tests-will-fail)
+(def __
+  (fn fltn [s]
+    (letfn [(add-to-acc [rest-of-s acc-so-far]
+              (let [f (first rest-of-s)]
+                (if (sequential? f)
+                  (concat acc-so-far (fltn f))
+                  (concat acc-so-far (list f)))))]
+      (loop [s' s
+             acc '()]
+        (if (empty? s')
+          acc
+          (recur (rest s') (add-to-acc s' acc)))))))
 
 (comment
-  
   )
 
 (tests

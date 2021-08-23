@@ -9,10 +9,16 @@
 ;; Write a function which returns the first X fibonacci
 ;; numbers.
 
-(def __ :tests-will-fail)
-
+(def __
+  #(loop [c 0
+          acc []]
+     (if (> c %)
+       acc
+       (recur (inc c) (cond
+                        (= c 1) [1]
+                        (= c 2) [1 1]
+                        :else (conj acc (apply + (take-last 2 acc))))))))
 (comment
-  
   )
 
 (tests
