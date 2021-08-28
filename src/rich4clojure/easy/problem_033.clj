@@ -9,7 +9,7 @@
 ;; Write a function which replicates each element of a
 ;; sequence a variable number of times.
 
-(def __ :tests-will-fail)
+(def __ #(apply interleave (repeat %2 %1)))
 
 (comment
   

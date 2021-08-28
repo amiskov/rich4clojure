@@ -9,10 +9,28 @@
 ;; Write a function which removes consecutive duplicates
 ;; from a sequence.
 
-(def __ :tests-will-fail)
+
+(def __ (fn remove-consecutive
+          ([s] (remove-consecutive s '()))
+          ([s acc]
+           (if (empty? s)
+             (reverse acc)
+             (if (= (first s) (first acc))
+               (remove-consecutive (rest s) acc)
+               (remove-consecutive (rest s) (conj acc (first s))))))))
+
+(def __' (fn [s]
+  (->> s
+       (reduce
+         #(if (= %2 (first %1))
+            %1
+            (conj %1 %2))
+         '())
+       (reverse))))
+
+(def __'' #(map first (partition-by identity %)))
 
 (comment
-  
   )
 
 (tests

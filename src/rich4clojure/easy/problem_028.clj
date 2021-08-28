@@ -22,7 +22,6 @@
         (if (empty? s')
           acc
           (recur (rest s') (add-to-acc s' acc)))))))
-
 (comment
   )
 
