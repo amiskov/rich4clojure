@@ -11,10 +11,13 @@
 
 (def restricted [range])
 
-(def __ :tests-will-fail)
+(def __ #(take (- %2 %1) (iterate inc %1)))
+;; or
+(def __' #(for [n (iterate inc %1)
+               :while (< n %2)]
+           n))
 
 (comment
-  
   )
 
 (tests

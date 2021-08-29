@@ -12,11 +12,16 @@
 
 (def restricted [interleave])
 
-(def __ :tests-will-fail)
+(def __ #(loop [s' %1
+                s'' %2
+                acc []]
+           (if (or (empty? s') (empty? s''))
+             acc
+             (recur (rest s')
+                    (rest s'')
+                    (concat acc [(first s') (first s'')])))))
 
-(comment
-  
-  )
+(comment)
 
 (tests
   (__ [1 2 3] [:a :b :c]) := '(1 :a 2 :b 3 :c)
