@@ -18,8 +18,8 @@
 
 (comment
   (def __ #(letfn [(len [s c] (if (empty? s) c (len (rest s) (inc c))))]
-             (len % 0)))
-  )
+             (len % 0))))
+
 
 (tests
   (__ '(1 2 3 3 1)) := 5

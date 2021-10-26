@@ -9,11 +9,14 @@
 ;; Write a function which drops every Nth item from a
 ;; sequence.
 
-(def __ :tests-will-fail)
-
-(comment
-  
-  )
+(def __ #(loop [s' %1
+                n' 1
+                acc '()]
+           (if (empty? s')
+             (reverse acc)
+             (if (zero? (rem n' %2))
+               (recur (rest s') (inc n') acc)
+               (recur (rest s') (inc n') (cons (first s') acc))))))
 
 (tests
   (__ [1 2 3 4 5 6 7 8] 3) := [1 2 4 5 7 8]

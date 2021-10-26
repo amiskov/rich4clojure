@@ -12,14 +12,16 @@
 
 (def restricted [interleave])
 
-(def __ #(loop [s' %1
-                s'' %2
-                acc []]
-           (if (or (empty? s') (empty? s''))
-             acc
-             (recur (rest s')
-                    (rest s'')
-                    (concat acc [(first s') (first s'')])))))
+(def __' #(loop [s' %1
+                 s'' %2
+                 acc []]
+            (if (or (empty? s') (empty? s''))
+              acc
+              (recur (rest s')
+                     (rest s'')
+                     (concat acc [(first s') (first s'')])))))
+
+(def __ #(mapcat list %1 %2))
 
 (comment)
 

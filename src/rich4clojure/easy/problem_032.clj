@@ -11,8 +11,8 @@
 
 (def __ #(interleave % %))
 
-(comment
-  )
+(comment)
+
 
 (tests
   (__ [1 2 3]) := '(1 1 2 2 3 3)
