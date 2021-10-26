@@ -11,11 +11,11 @@
 
 (def restricted [interpose])
 
-(def __ :tests-will-fail)
+(def __
+  (fn [sep col]
+    (butlast (interleave col (repeat sep)))))
 
-(comment
-  
-  )
+(comment)
 
 (tests
   (__ 0 [1 2 3]) := [1 0 2 0 3]
