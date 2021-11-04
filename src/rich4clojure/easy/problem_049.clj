@@ -11,11 +11,12 @@
 
 (def restricted [split-at])
 
-(def __ :tests-will-fail)
+(def __
+  (fn [n col]
+    [(vec (take n col))
+     (vec (drop n col))]))
 
-(comment
-  
-  )
+(comment)
 
 (tests
   (__ 3 [1 2 3 4 5 6]) := [[1 2 3] [4 5 6]]
