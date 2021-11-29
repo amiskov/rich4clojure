@@ -12,11 +12,13 @@
 
 (def restricted [iterate])
 
-(def __ :tests-will-fail)
+(def __ (fn iter [f v]
+           (lazy-seq (cons v (iter f (f v))))))
 
 (comment
-  
-  )
+  (defn iter [f v]
+    (lazy-seq (cons v (iter f (f v)))))
+  (take 10 (iter inc 0)))
 
 (tests
   (take 5 (__ #(* 2 %) 1)) := [1 2 4 8 16]

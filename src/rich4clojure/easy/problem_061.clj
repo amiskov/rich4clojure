@@ -11,11 +11,10 @@
 
 (def restricted [zipmap])
 
-(def __ :tests-will-fail)
+(def __ (fn [ks vs]
+          (into {} (map vector ks vs))))
 
-(comment
-  
-  )
+(comment)
 
 (tests
   (__ [:a :b :c] [1 2 3]) := {:a 1, :b 2, :c 3}
