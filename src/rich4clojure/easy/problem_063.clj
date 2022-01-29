@@ -14,18 +14,39 @@
 
 (def restricted [group-by])
 
-(def __ :tests-will-fail)
+
+;; First attempt
+#_(defn __ [f c]
+    (reduce
+      (fn [acc el]
+        (let [k (f el)
+              v (conj (vec (get acc k)) el)]
+          (assoc acc k v)))
+      {}
+      c))
+
+
+(defn __ [f c]
+  (reduce
+    #(merge-with into %1 (assoc {} (f %2) [%2]))
+    {} c))
 
 (comment
-  
-  )
+  (merge-with into
+              {:lisp ["Common Lisp" "Clojure"]
+               :ml   ["Caml" "Objective Caml"]}
+              {:lisp ["Scheme"]
+               :ml   ["Standard ML"]})
+  #_end)
+
+
 
 (tests
   (__ #(> % 5) [1 3 6 8]) := {false [1 3], true [6 8]}
   (__ #(apply / %) [[1 2] [2 4] [4 6] [3 6]]) :=
-   {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}
+  {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}
   (__ count [[1] [1 2] [3] [1 2 3] [2 3]]) :=
-   {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})
+  {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]})
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/b49b9b1171a0d8340f94893a614a43ec
