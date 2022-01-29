@@ -12,12 +12,7 @@
 
 (def __ :tests-will-fail)
 
-(comment
-  (defn foo [x]
-    (when (> x 0)
-      (conj (foo (dec x)) x))) ; (conj nil 3) return s '(3)
-  (foo 5)
-  )
+(comment)
 
 (tests
   '(5 4 3 2 1) := ((fn foo [x] (when (> x 0) (conj (foo (dec x)) x))) 5))
