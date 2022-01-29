@@ -17,9 +17,7 @@
 
 (def __ :tests-will-fail)
 
-(comment
-  
-  )
+(comment)
 
 (tests
   15 := (reduce + [1 2 3 4 5])

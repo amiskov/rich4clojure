@@ -12,9 +12,7 @@
 
 (def __ 1)
 
-(comment
-  
-  )
+(comment)
 
 (tests
   __ := (if-not false 1 0)

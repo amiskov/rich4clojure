@@ -16,8 +16,7 @@
 
 (def __ (range 1 40 4))
 
-(comment
-  )
+(comment)
 
 (tests
   __ := (for [x (range 40)

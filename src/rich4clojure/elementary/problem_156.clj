@@ -21,8 +21,7 @@
 (def __ (fn [v ks]
           (apply hash-map (interleave ks (repeat v)))))
 
-(comment
-  )
+(comment)
 
 (tests
   (__ 0 [:a :b :c]) := {:a 0 :b 0 :c 0}

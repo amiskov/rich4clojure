@@ -1,7 +1,7 @@
 (ns repl
   (:require [hyperfiddle.rcf]))
 
-  ; wait to enable tests until after app namespaces are loaded (intended for subsequent REPL interactions) 
+; wait to enable tests until after app namespaces are loaded (intended for subsequent REPL interactions)
 
 #?(:clj  (alter-var-root #'hyperfiddle.rcf/*enabled* (constantly true))
    :cljs (set! hyperfiddle.rcf/*enabled* true))

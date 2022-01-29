@@ -16,14 +16,12 @@
 
 (def __ #(apply + %))
 
-(comment
-
-  )
+(comment)
 
 (tests
   (__ (map inc (take 3 (drop 2 [2 5 4 1 3 6])))) :=
-   (->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc) (__))
-   11)
+  (->> [2 5 4 1 3 6] (drop 2) (take 3) (map inc) (__))
+  11)
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/7c7f22cab82de9fbeb08aa518efca3ec

@@ -12,9 +12,7 @@
 
 (def __ #{1 2})
 
-(comment
-
-  )
+(comment)
 
 ;(tests
 ;  __ := #{2}

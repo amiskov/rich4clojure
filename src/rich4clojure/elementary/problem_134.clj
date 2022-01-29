@@ -11,10 +11,9 @@
 ;; its value is nil.
 
 (def __ (fn nil-key? [k m]
-          (nil? (m k false)))) ; we can set the default value (DV) for `(hash-map key DV)`
+          (nil? (m k false))))                              ; we can set the default value (DV) for `(hash-map key DV)`
 
-(comment
-  )
+(comment)
 
 (tests
   (__ :a {:a nil :b 2}) := true
